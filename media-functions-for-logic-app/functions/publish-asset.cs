@@ -57,7 +57,7 @@ namespace media_functions_for_logic_app {
                 string smoothUrl = "";
                 string pathUrl = "";
                 string preferredSE = data.preferredSE;
-                string locatorType = data.locatorType;
+                string serveType = data.locatorType;
 
                 MediaServicesCredentials amsCredentials = new MediaServicesCredentials ();
                 log.Info ($"Using Azure Media Service Rest API Endpoint : {amsCredentials.AmsRestApiEndpoint}");
@@ -104,8 +104,8 @@ namespace media_functions_for_logic_app {
                         }
                     }
                     if (serveType == "sas ") {
-                         IAccessPolicy readPolicy3 = _context.AccessPolicies.Create ("readPolicy", TimeSpan.FromDays (365 * 100), AccessPermissions.Read);
-                        ILocator outputLocator3 = _context.Locators.CreateLocator (LocatorType.SAS, outputAsset, readPolicy3);
+                         IAccessPolicy readPolicy1 = _context.AccessPolicies.Create ("readPolicy", TimeSpan.FromDays (365 * 100), AccessPermissions.Read);
+                        ILocator outputLocator1 = _context.Locators.CreateLocator (LocatorType.Sas, outputAsset, readPolicy1);
 
                     }
                 } catch (Exception ex) {
