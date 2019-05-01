@@ -8,7 +8,7 @@ Input:
 {
     "assetId" : "nb:cid:UUID:2d0d78a2-685a-4b14-9cf0-9afb0bb5dbfc", // Mandatory, Id of the source asset
     "preferredSE" : "default" // Optional, name of Streaming Endpoint if a specific Streaming Endpoint should be used for the URL outputs
-    "locatorType" "OnDemandOrigin " // OnDemandOrigin  or sas locator type 
+    "serveType" "OnDemandOrigin " // OnDemandOrigin  or sas locator type 
 }
 
 Output:
@@ -85,7 +85,7 @@ namespace media_functions_for_logic_app {
 
                     // publish with a streaming locator (100 years)
 
-                    if (locatorType == "OnDemandOrigin ") {
+                    if (serveType == "OnDemandOrigin ") {
                         IAccessPolicy readPolicy2 = _context.AccessPolicies.Create ("readPolicy", TimeSpan.FromDays (365 * 100), AccessPermissions.Read);
                         ILocator outputLocator2 = _context.Locators.CreateLocator (LocatorType.OnDemandOrigin, outputAsset, readPolicy2);
 
@@ -103,9 +103,9 @@ namespace media_functions_for_logic_app {
                             log.Info ($"path url : {pathUrl}");
                         }
                     }
-                    if (locatorType == "sas ") {
+                    if (serveType == "sas ") {
                          IAccessPolicy readPolicy3 = _context.AccessPolicies.Create ("readPolicy", TimeSpan.FromDays (365 * 100), AccessPermissions.Read);
-                        ILocator outputLocator3 = _context.Locators.CreateLocator (LocatorType.SAS, outputAsset, readPolicy2);
+                        ILocator outputLocator3 = _context.Locators.CreateLocator (LocatorType.SAS, outputAsset, readPolicy3);
 
                     }
                 } catch (Exception ex) {
