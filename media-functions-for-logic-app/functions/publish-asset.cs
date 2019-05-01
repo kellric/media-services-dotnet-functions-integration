@@ -57,7 +57,7 @@ namespace media_functions_for_logic_app {
                 string smoothUrl = "";
                 string pathUrl = "";
                 string preferredSE = data.preferredSE;
-                string serveType = data.locatorType;
+                string serveType = data.serveType;
 
                 MediaServicesCredentials amsCredentials = new MediaServicesCredentials ();
                 log.Info ($"Using Azure Media Service Rest API Endpoint : {amsCredentials.AmsRestApiEndpoint}");
