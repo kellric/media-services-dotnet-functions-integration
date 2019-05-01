@@ -85,7 +85,7 @@ namespace media_functions_for_logic_app {
 
                     // publish with a streaming locator (100 years)
                     log.Info (serveType);
-                    if (serveType == "OnDemandOrigin ") {
+                    if (serveType == "OnDemandOrigin") {
                         IAccessPolicy readPolicy2 = _context.AccessPolicies.Create ("readPolicy", TimeSpan.FromDays (365 * 100), AccessPermissions.Read);
                         ILocator outputLocator2 = _context.Locators.CreateLocator (LocatorType.OnDemandOrigin, outputAsset, readPolicy2);
 
@@ -103,7 +103,7 @@ namespace media_functions_for_logic_app {
                             log.Info ($"path url : {pathUrl}");
                         }
                     }
-                    if (serveType == "sas ") {
+                    if (serveType == "sas") {
                          IAccessPolicy readPolicy1 = _context.AccessPolicies.Create ("readPolicy", TimeSpan.FromDays (365 * 100), AccessPermissions.Read);
                         ILocator outputLocator1 = _context.Locators.CreateLocator (LocatorType.Sas, outputAsset, readPolicy1);
 
